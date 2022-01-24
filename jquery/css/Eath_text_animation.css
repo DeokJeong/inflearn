@@ -1,0 +1,19 @@
+.hello {
+    background-image: url(../img/earth.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    width: 400px;
+    height: 300px;
+    position: relative;
+}
+
+.text {
+    bottom: 0;
+    color: brown;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    font-size: 30pt !important;
+    font-weight: bold;
+    position: absolute;
+    text-shadow: 0 0 5px #000;
+}
