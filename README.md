@@ -44,51 +44,51 @@ class = "swiper-bttton-next"
 
 스크립트
 
-const swiper = new Swiper('클래스명' {
-__기본 셋팅__
+    const swiper = new Swiper('클래스명' {
+    // 기본
 
-    ___방향 셋팅 vertical 수직, horizontal 수평 설정이 없으면 수평___
+    // 방향 : vertical 수직, horizontal 수평  _ 설정을 안 할 경우 수평
     direction: 'horizontal',
-    
-    ___한번에 보여지는 페이지 숫자___
+
+    // 한번에 보여지는 페이지 숫자 ( 'auto' 가능 )
     slidesPerView: 1,
-    
-    ___페이지와 페이지 사이의 간격___
+
+    // 페이지와 페이지 사이의 간격
     spaceBetween: 0,
-    
-    ___드레그 기능 true 사용가능 false 사용불가___
+
+    // 드레그 기능 : true 사용가능 false 사용불가
     debugger: true,
-    
-    ___마우스 휠기능 true 사용가능 false 사용불가___
+
+    // 마우스 휠기능 : true 사용가능 false 사용불가
     mousewheel: true,
-    
-    ___반복 기능 true 사용가능 false 사용불가___
+
+    // 반복 기능 : true 사용가능 false 사용불가
     loop: true,
-    
-    ___선택된 슬라이드를 중심으로 true 사용가능 false 사용불가 djqt___
+
+    // 선택된 슬라이드가 가운데  : true 사용가능 false 사용불가
     centeredSlides: true,
-    
-    ___페이지 전환효과 slidesPerView효과와 같이 사용 불가___
+
+    // 페이지 전환효과 slidesPerView효과와 같이 사용 불가
     effect: 'fade',
     speed: 1000,
-    
-    ___자동 스크를링___
+
+    // 자동 스크를링
     autoplay: {
-    
-        ___시간 1000 이 1초___
-        delay: 3500,
-        disableOnInteraction: false,
+
+    // 시간 1000 이 1초
+    delay: 3500,
+    disableOnInteraction: false,
     },
-    
-    ___페이징___
+
+    // 페이징
     pagination: {
-    
-        ___페이지 기능___
-        el: '.swiper-pagination',
-        
-        ___클릭 가능여부___
-        clickable: true,
+
+    // 페이지 기능
+    el: '.swiper-pagination',
+
+    // 클릭 가능여부
+    clickable: true,
     },
-});
+    });
 
 script link 를 윗쪽으로 두고싶을 경우 __window.onload()__를 사용하면 된다.
