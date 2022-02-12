@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+    <style>
+        *{margin:0; padding: 0;}
+        body { background-color:antiquewhite;}
+        ul,li { list-style: none; }
+        a { text-decoration: none; color: #000; font-size: 30px; }
+        .input_text { width: 50%; height:100px; margin:auto; margin-top:10%;}
+        .input_num { width: 100%; height: 100px; font-size: 20px; padding-left: 20px;}
+        .num_btn { width: 50%; height: 500px; margin: auto;}
+        .num_btn > ul { display: flex; flex-wrap:wrap; justify-content: space-between;}
+        .num_btn > ul > li { width: 33%; height: 100px; line-height:100px; text-align: center; border: 2px solid #000; box-sizing: border-box; margin-top: 10px; background-color: #fff;}
+        .num_btn > ul > li > a { display: block; }
+    </style>
+</head>
+<body>
+    <div class="input_text">
+        <input type="text" class="input_num" placeholder="이 글을 읽어주세요" readonly/>
+    </div>
+    <div class="num_btn">
+        <ul>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li><a href="#">.</a></li>
+            <li><a href="#">0</a></li>
+            <li><a href="#" class="back_num">←</a></li>
+        </ul>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('.num_btn a').click(function(){
+                var nam = $(this).text();
+                var inV = $('.input_num').val();
+                var lan = $('.input_num').val().length;
+
+                if($(this).hasClass('back_num')){
+                    $('.input_num').val(inV.slice(0, lan -1));
+
+                }else{
+                    $('.input_num').val(inV + nam);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
