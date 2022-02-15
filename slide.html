@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .slide {
+        width: 100%;
+        max-width: calc(100% - 200px);
+        height: 100%;
+        background-color: rgb(209, 163, 251);
+        margin: 30px auto;
+        overflow: hidden;
+    }
+
+    ul {
+        display: flex;
+        animation: pil 10s linear infinite;
+    }
+
+    @keyframes pil {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(100%);
+        }
+    }
+
+    ul>li {
+        margin-left: 30px;
+        font-size: 3rem;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div class="slide">
+        <ul>
+            <li>그는</li>
+            <li>지금</li>
+            <li>머리를</li>
+            <li>말린다.</li>
+        </ul>
+    </div>
+</body>
+
+</html>
