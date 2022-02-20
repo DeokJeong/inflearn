@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>drag & drop</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .wrap {
+    width: 800px;
+    height: 800px;
+    margin: auto;
+    background-color: blueviolet;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img_up {
+    width: 200px;
+    height: 200px;
+    background-color: antiquewhite;
+    margin: 100px auto;
+  }
+
+  .upload {
+    width: 500px;
+    height: 500px;
+    background-color: rgb(218, 184, 250);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .upload label {
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgb(179, 255, 255);
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+  }
+
+  #file {
+    display: none;
+  }
+
+  .img_up img {
+    width: 100%;
+  }
+
+  #video_up {
+    width: 100%;
+  }
+</style>
+
+<body>
+  <div class="wrap">
+    <div class="img_up">
+      <img id="img" />
+      <video id="video_up" autoplay controls muted></video>
+    </div>
+    <div class="upload">
+      <label for="file">업로드버튼</label>
+      <input type="file" name="file" id="file">
+      <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+      <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+    </div>
+  </div>
+
+  <script>
+    var sel_file;
+
+    $(document).ready(function () {
+      $('#file').on("change", handleImgFileSelect);
+      var uploadBox = $('.upload');
+      
+      uploadBox.on({
+        'dragenter': function (e) {
+          console.log("dragenter")
+        },
+        'dragleave': function (e) {
+          console.log("dragleave")
+        },
+        'dragover': function (e) {
+          e.preventDefault();
+          console.log("dragover")
+        },
+        'drop': function (e) {
+          e.preventDefault();
+          handleImgFileSelect(e.originalEvent.dataTransfer.files, true);
+        }
+      });
+    });
+
+    function handleImgFileSelect(e, is_drop=undefined) {
+      if (is_drop){
+        files = e
+      } else {
+        var files = e.target.files;
+      }
+      
+      var filesArr = Array.prototype.slice.call(files);
+
+      filesArr.forEach(function (f) {
+        if (f.type.match("image.*")) {
+
+          sel_file = f;
+
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            $('#img').attr('src', e.target.result);
+          }
+          reader.readAsDataURL(f);
+        } else if (f.type.match("video/*")) {
+          sel_file = f;
+          console.log(f);
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            $('#video_up').attr('src', e.target.result);
+          }
+          reader.readAsDataURL(f);
+        } else {
+          alert('파일을 확인해주세요.')
+          return;
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
