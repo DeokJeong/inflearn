@@ -137,6 +137,8 @@ swiper 내 script를 사용하기 위해서 slideChangeTransitionEnd 를 사용�
 ex )  
 ```
 var mySwiper = new Swiper('.swiper-container',{
+ loop: true,
+ spaceBetween: 10,
  on: {
   slideChangeTransitionEnd: function(){
    alert('스크립트의 내용을 입력합니다');
