@@ -127,4 +127,30 @@ object-fit : none  =  아무것도 안하고 본래의 이미지 사이즈 유�
 scale-down : none / contiain 중에 적절한 방향으로 사이즈 조절
 
 
+22.03.25
+
+swiper 에서 scrollbar와 loop를 함께 사용하고싶을땐 검색을 했을때 같이 하는 방법이 없기때문에 pagination 으로 custom 해서 사용하면 된다.
+만일 pagination으로 사용하고싶지 않다면 swiper 와 script 의 조합으로 만들수 있다.
+
+swiper 내 script를 사용하기 위해서 slideChangeTransitionEnd 를 사용한다.
+
+ex )  
+```
+var mySwiper = new Swiper('.swiper-container',{
+ on: {
+  slideChangeTransitionEnd: function(){
+   alert('스크립트의 내용을 입력합니다');
+  },
+ },
+});
+
+해당 페이지의 index를 알고싶다면 this.realIndex 를 사용하면 된다.
+
+
+
+
+
+
+
+
 
